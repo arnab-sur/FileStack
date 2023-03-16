@@ -1,0 +1,67 @@
+doctype html
+html(lang='en')
+ head
+   title FileStack
+ body
+  p(style="color : red; font-size: 40px; text-align: center;") Hello #{name}, Welcome To FileStack
+   div.remark
+   div(style="text-align: center; padding-bottom: 20px;")
+    form(method='POST',action= "/addfile",enctype='multipart/form-data')
+        input(type='file', name='myfile')
+        input(type='hidden',name='email',value=email)
+        input(type='submit', name='uploadimage', value='Upload File')
+  div(style="justify-content: center; text-align: center; margin-left: 30%")
+    table(style="width: 60%; border: 10px; background-color: #D1D3D3;")
+      tr(style="text-align: center; font-size: 30px;")
+        th All Files 
+        th My Files 
+      
+      tr
+        td(style="text-align: center; font-size: 20px;")
+          script 
+          if access == "admin"
+            ul(style="list-style: none;")
+              each val in all_files
+                li #{val} 
+                form(method='GET',action= "/downloadfile")
+                    input(type='hidden',name='filename',value=val)
+                    input(type='submit', name='download', value="Download")
+          else 
+            form(method='GET',action= "/requestadmin")
+              input(type='text', name='code', value='')
+              input(type='hidden',name='email',value=email)
+              input(type='submit', name='uploadimage', value='Request')
+          
+        td(style="text-align: center; font-size: 20px;")
+          ul(style="list-style: none;")
+            each val in my_files
+              li #{val} 
+              form(method='GET',action= "/downloadfile")
+                  input(type='hidden',name='filename',value=val)
+                  input(type='submit', name='download', value="Download")       
+
+    
+    //- div(style="display: flex; flex-direction: row;")
+    //-   p(style="color : green; font-size: 20px; text-align: left; margin-left: 40px;") All Files 
+    //-   script 
+    //-   if access == "admin"
+    //-     ul(style="list-style: none;")
+    //-       each val in all_files
+    //-         li #{val} 
+    //-         form(method='GET',action= "/downloadfile")
+    //-             input(type='hidden',name='filename',value=val)
+    //-             input(type='submit', name='download', value="Download")
+    //-   else 
+    //-     form(method='GET',action= "/requestadmin")
+    //-       input(type='text', name='code', value='')
+    //-       input(type='hidden',name='email',value=email)
+    //-       input(type='submit', name='uploadimage', value='Request')
+
+
+    //-   p(style="color : blue; font-size: 20px; text-align: right; margin-right: 40px;") My Files 
+    //-   ul(style="list-style: none;")
+    //-     each val in my_files
+    //-       li #{val} 
+    //-       form(method='GET',action= "/downloadfile")
+    //-           input(type='hidden',name='filename',value=val)
+    //-           input(type='submit', name='download', value="Download")       

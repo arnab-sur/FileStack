@@ -1,0 +1,26 @@
+h1(style="color : red; font-size: 40px; text-align: center; margin-bottom: 10%;") FileStack : Sign In/Register Here
+
+div(style="display: flex; flex-direction: row; column-gap: 10px; justify-content: center;")
+    div(style="background-color: #f45234; color: #fff; font-weight: bold; text-align: center; padding: 20px;")
+        form(method= "GET",action= "/auth")
+            p
+                |          email: 
+                input(type='text', name='email', value='')
+                |          password: 
+                input(type='text', name='password', value='')
+            input(type='submit', value='Sign In')
+
+    div(style="background-color: #23ae12; color: #fff; font-weight: bold; text-align: center; padding: 20px;")
+        form(method= "GET",action= "/register")
+            p
+                |          name: 
+                input(type='text', name='name', value='')
+                |          email: 
+                input(type='text', name='email', value='')
+                |          password: 
+                input(type='text', name='password', value='')
+            input(type='submit', value='Register')
+
+
+//form(action="/register",method="post")
+//<input type="button" name="register" value="New users register here">
